@@ -50,7 +50,7 @@ function UnderConstructionPage() {
         e.preventDefault();
 
         try {
-            const response = await fetch('https://formspree.io/f/mbjebvzw', {
+            const response = await fetch('https://formspree.io/f/xnqezgkk', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
