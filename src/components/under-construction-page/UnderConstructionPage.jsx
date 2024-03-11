@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import BackgroundImage from '../../assets/background-imgs/church-bg.png';
-import Logo from '../../assets/come-holy-spirit-logo.png'
-
-
+import Logo from '../../assets/come-holy-spirit-logo.png';
 
 function UnderConstructionPage() {
     const [showContactForm, setShowContactForm] = useState(false);
@@ -18,14 +16,14 @@ function UnderConstructionPage() {
         const dynamicText = "Holy Spirit";
 
         return (
-            <h1 style={{ color: 'black', fontSize: "50px",fontWeight: 'bold'}}>
+            <h1 style={{ color: 'black', fontSize: "50px", fontWeight: 'bold' }}>
                 {staticText}
                 <ReactTypingEffect
                     text={[dynamicText]}
                     speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
                     cursorRenderer={cursor => <span>{cursor}</span>}
                     displayTextRenderer={(text, i) => (
-                        <span key={i} style={{ color: 'black', fontWeight: 'bold'}}>
+                        <span key={i} style={{ color: 'black', fontWeight: 'bold' }}>
                             {text.split('').map((char, i) => (
                                 <span key={i}>{char}</span>
                             ))}
@@ -34,7 +32,7 @@ function UnderConstructionPage() {
                 />
             </h1>
         );
-    }
+    };
 
     const handleContactButtonClick = () => {
         setShowContactForm(true);
@@ -98,9 +96,9 @@ function UnderConstructionPage() {
                 position: 'relative', // Ensure the modal overlay is positioned correctly
             }}
         >
-            {/* Centered logo */}
-            <div style={{ position: 'absolute', width:'150px', top: ".5%", left: '7%', transform: 'translateX(-50%)' }}>
-                <img src={Logo} alt="Logo" style={{ width: '300px', height: 'auto' }} />
+            {/* Logo in the corner */}
+            <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
+                <img src={Logo} alt="Logo" style={{ width: '150px', height: 'auto' }} />
             </div>
 
             <div style={{ fontSize: "18px", marginBottom: '20px', textAlign: 'center' }}>
