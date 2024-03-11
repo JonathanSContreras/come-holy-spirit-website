@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import ReactTypingEffect from 'react-typing-effect';
+import BackgroundImage from '../../assets/background-imgs/church-bg.png';
+
+
 
 function UnderConstructionPage() {
     const [showContactForm, setShowContactForm] = useState(false);
@@ -80,7 +83,7 @@ function UnderConstructionPage() {
     return (
         <div
             style={{
-                backgroundImage: 'url("src/assets/background-imgs/church-bg.png")', // Replace with your image path
+                backgroundImage: `url(${BackgroundImage})`, // Replace with your image path
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
