@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './components/navbar/Navbar'
 import Hero from './components/hero/hero'
 import Products from "./components/products/Products"
+import MostRecentDrops from './components/mostRecentDrops/MostRecentDrops'
+import UnderConstructionPage from './components/under-construction-page/UnderConstructionPage'
 import AOS from "aos"
 import "aos/dist/aos.css"
 
@@ -17,9 +19,11 @@ const App = () => {
   }, []);
   return (
     <div>
-      <Navbar />
+      {/* <Navbar />
       <Hero />
       <Products />
+      <MostRecentDrops /> */}
+      <UnderConstructionPage />
     </div>
   )
 }

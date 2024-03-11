@@ -1,40 +1,29 @@
 import React from 'react'
-import Shirt1 from "../../assets/hero/shirt_1.png"
-import Shirt2 from "../../assets/hero/shirt_2.png"
+import hosannaShirt1 from "../../assets/hero/hosanna-shirt-1.png"
+import emmanuelShirt1 from "../../assets/hero/emmanuel-shirt-1.png"
 import Tote1 from "../../assets/hero/tote_1.png"
 import Slider from "react-slick";
 
 const ImageList = [
   {
     id:1,
-    img: Shirt1,
-    title: "More coming soon...",
+    img: hosannaShirt1,
+    title: "Hosanna",
     description: 
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
-    qui officia deserunt mollit anim id est laborum.`,
+    `Blessed be the one who comes in the name of the Lord.`,
   },
   {
     id:2,
-    img: Shirt2,
-    title: "More coming soon...",
+    img: emmanuelShirt1,
+    title: "Emmanuel",
     description: 
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
-    qui officia deserunt mollit anim id est laborum.`,
+    `Isaiah 11:1-2 \nThere shall come forth a Rod from the stem
+     of Jesse… The Spirit of the Lord shall rest upon Him`,
   },
   {
     id:3,
     img: Tote1,
-    title: "More coming soon...",
+    title: "Stay Here AND",
     description: 
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
