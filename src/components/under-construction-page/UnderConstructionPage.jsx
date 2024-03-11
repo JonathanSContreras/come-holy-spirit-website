@@ -12,24 +12,42 @@ function UnderConstructionPage() {
     });
 
     const ReactTypingEffectDemo = () => {
-        const staticText = "Come ";
-        const dynamicText = "Holy Spirit";
+        // const dynamicText = ["בואי רוח הקודש", " Come Holy Spirit"]; // Array containing both Hebrew and English text
+        // const fonts = ["Heebo", "Bebas Neue"]; // Add more fonts if needed
+
+        const hebrewText = "רוח הקודש";
+        const englishText = "Come Holy Spirit";
+        const hebrewFont = "Heebo";
+        const englishFont = "Cinzel"; 
 
         return (
-            <h1 style={{ color: 'black', fontSize: "50px", fontWeight: 'bold' }}>
-                {staticText}
-                <ReactTypingEffect
-                    text={[dynamicText]}
-                    speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
-                    cursorRenderer={cursor => <span>{cursor}</span>}
-                    displayTextRenderer={(text, i) => (
-                        <span key={i} style={{ color: 'black', fontWeight: 'bold' }}>
-                            {text.split('').map((char, i) => (
-                                <span key={i}>{char}</span>
-                            ))}
-                        </span>
-                    )}
-                />
+            // <h1 style={{ fontFamily: 'Heebo', color: 'black', fontSize: "40px", fontWeight: 'bold', textAlign: 'right', display:'flex', justifyContent:'center'}}>
+            //     <ReactTypingEffect
+            //         text={dynamicText}
+            //         speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
+            //         cursorRenderer={cursor => <span>{cursor}</span>}
+            //         displayTextRenderer={(text, i) => (
+            //             <span key={i} style={{ color: 'black', fontWeight: 'bold' }}>
+            //                 {text.split('').map((char, index) => (
+            //                     <span key={index} style={{ fontFamily: "Heebo" }}>{char}</span>
+            //                 ))}
+            //             </span>
+            //         )}
+            //     />
+            // </h1>
+            <h1 style={{ color: 'black', fontSize: "50px", fontWeight: 'bold', textAlign: 'right', display:'flex', justifyContent:'center'}}>
+            <ReactTypingEffect
+                text={[hebrewText, englishText]} // Array containing both Hebrew and English text
+                speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
+                cursorRenderer={cursor => <span>{cursor}</span>}
+                displayTextRenderer={(text, i) => (
+                    <span key={i} style={{ color: 'black', fontWeight: 'bold', fontFamily: i === 0 ? hebrewFont : englishFont }}>
+                        {text.split('').map((char, index) => (
+                            <span key={index}>{char}</span>
+                        ))}
+                    </span>
+                )}
+            />
             </h1>
         );
     };
@@ -97,7 +115,7 @@ function UnderConstructionPage() {
             }}
         >
             {/* Logo in the corner */}
-            <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
+            <div style={{ position: 'absolute', top: '50px', left: '50%', transform: 'translateX(-50%)' }}>
                 <img src={Logo} alt="Logo" style={{ width: '150px', height: 'auto' }} />
             </div>
 
