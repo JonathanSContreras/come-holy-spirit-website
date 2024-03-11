@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import BackgroundImage from '../../assets/background-imgs/church-bg.png';
+import Logo from '../../assets/come-holy-spirit-logo.png'
 
 
 
@@ -21,7 +22,7 @@ function UnderConstructionPage() {
                 {staticText}
                 <ReactTypingEffect
                     text={[dynamicText]}
-                    speed={50} // Adjust speed here (e.g., 50 milliseconds per character)
+                    speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
                     cursorRenderer={cursor => <span>{cursor}</span>}
                     displayTextRenderer={(text, i) => (
                         <span key={i} style={{ color: 'black', fontWeight: 'bold'}}>
@@ -97,6 +98,11 @@ function UnderConstructionPage() {
                 position: 'relative', // Ensure the modal overlay is positioned correctly
             }}
         >
+            {/* Centered logo */}
+            <div style={{ position: 'absolute', width:'150px', top: ".5%", left: '7%', transform: 'translateX(-50%)' }}>
+                <img src={Logo} alt="Logo" style={{ width: '300px', height: 'auto' }} />
+            </div>
+
             <div style={{ fontSize: "18px", marginBottom: '20px', textAlign: 'center' }}>
                 <ReactTypingEffectDemo /> {/* Render the ReactTypingEffectDemo component */}
                 <p>This page is under construction.</p>
