@@ -15,7 +15,7 @@ function UnderConstructionPage() {
         // const dynamicText = ["בואי רוח הקודש", " Come Holy Spirit"]; // Array containing both Hebrew and English text
         // const fonts = ["Heebo", "Bebas Neue"]; // Add more fonts if needed
 
-        const hebrewText = "רוח הקודש";
+        const hebrewText = "בואי רוח הקודש";
         const englishText = "Come Holy Spirit";
         const hebrewFont = "Heebo";
         const englishFont = "Cinzel"; 
@@ -35,13 +35,13 @@ function UnderConstructionPage() {
             //         )}
             //     />
             // </h1>
-            <h1 style={{ color: 'black', fontSize: "50px", fontWeight: 'bold', textAlign: 'right', display:'flex', justifyContent:'center'}}>
+            <h1 style={{ color: 'black', fontSize: "40px", textAlign: 'right', display:'flex', justifyContent:'center'}}>
             <ReactTypingEffect
                 text={[hebrewText, englishText]} // Array containing both Hebrew and English text
                 speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
                 cursorRenderer={cursor => <span>{cursor}</span>}
                 displayTextRenderer={(text, i) => (
-                    <span key={i} style={{ color: 'black', fontWeight: 'bold', fontFamily: i === 0 ? hebrewFont : englishFont }}>
+                    <span key={i} style={{ color: 'black', fontFamily: i === 0 ? hebrewFont : englishFont }}>
                         {text.split('').map((char, index) => (
                             <span key={index}>{char}</span>
                         ))}
