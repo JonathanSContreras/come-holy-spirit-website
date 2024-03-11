@@ -11,43 +11,70 @@ function UnderConstructionPage() {
         message: ''
     });
 
-    const ReactTypingEffectDemo = () => {
-        // const dynamicText = ["בואי רוח הקודש", " Come Holy Spirit"]; // Array containing both Hebrew and English text
-        // const fonts = ["Heebo", "Bebas Neue"]; // Add more fonts if needed
+    // const ReactTypingEffectDemo = () => {
+    //     // const dynamicText = ["בואי רוח הקודש", " Come Holy Spirit"]; // Array containing both Hebrew and English text
+    //     // const fonts = ["Heebo", "Bebas Neue"]; // Add more fonts if needed
+    //     const englishText = "Come Holy Spirit";
+    //     const hebrewText = "בואי רוח הקודש";
+    //     const englishFont = "Cinzel"; 
+    //     const hebrewFont = "Heebo";
+        
 
-        const hebrewText = "בואי רוח הקודש";
-        const englishText = "Come Holy Spirit";
-        const hebrewFont = "Heebo";
-        const englishFont = "Cinzel"; 
+    //     return (
+    //         // <h1 style={{ fontFamily: 'Heebo', color: 'black', fontSize: "40px", fontWeight: 'bold', textAlign: 'right', display:'flex', justifyContent:'center'}}>
+    //         //     <ReactTypingEffect
+    //         //         text={dynamicText}
+    //         //         speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
+    //         //         cursorRenderer={cursor => <span>{cursor}</span>}
+    //         //         displayTextRenderer={(text, i) => (
+    //         //             <span key={i} style={{ color: 'black', fontWeight: 'bold' }}>
+    //         //                 {text.split('').map((char, index) => (
+    //         //                     <span key={index} style={{ fontFamily: "Heebo" }}>{char}</span>
+    //         //                 ))}
+    //         //             </span>
+    //         //         )}
+    //         //     />
+    //         // </h1>
+    //         <h1 style={{ color: 'black', fontSize: "40px", textAlign: 'right', display:'flex', justifyContent:'center'}}>
+    //         <ReactTypingEffect
+    //             text={[hebrewText, englishText]} // Array containing both Hebrew and English text
+    //             speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
+    //             cursorRenderer={cursor => <span>{cursor}</span>}
+    //             displayTextRenderer={(text, i) => (
+    //                 <span key={i} style={{ color: 'black', fontFamily: i === 0 ? hebrewFont : englishFont, fontWeight: i === 0 ? 'bold' : 'normal' }}>
+    //                     {text.split('').map((char, index) => (
+    //                         <span key={index}>{char}</span>
+    //                     ))}
+    //                 </span>
+    //             )}
+    //         />
+    //     </h1>
+    //     );
+    // };
+    const ReactTypingEffectDemo = () => {
+        const texts = [
+            // { text: "Holy Spirit", font: "Cinzel", fontWeight: "normal", color: "black" }, // English
+            // { text: "Espíritu Santo", font: "Bebas Neue", fontWeight: "normal", color: "black" }, // Spanish
+            // { text: "רוח הקודש", font: "Heebo", fontWeight: "bold", color: "black" } // Hebrew
+            { text: "Holy Spirit", font: "Cinzel", fontWeight: "normal", color: "black" }, // English
+            { text: "Espíritu Santo", font: "Cinzel", fontWeight: "normal", color: "black" }, // Spanish
+            { text: "רוח הקודש", font: "Cinzel", fontWeight: "normal", color: "black" } // Hebrew
+        ];
 
         return (
-            // <h1 style={{ fontFamily: 'Heebo', color: 'black', fontSize: "40px", fontWeight: 'bold', textAlign: 'right', display:'flex', justifyContent:'center'}}>
-            //     <ReactTypingEffect
-            //         text={dynamicText}
-            //         speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
-            //         cursorRenderer={cursor => <span>{cursor}</span>}
-            //         displayTextRenderer={(text, i) => (
-            //             <span key={i} style={{ color: 'black', fontWeight: 'bold' }}>
-            //                 {text.split('').map((char, index) => (
-            //                     <span key={index} style={{ fontFamily: "Heebo" }}>{char}</span>
-            //                 ))}
-            //             </span>
-            //         )}
-            //     />
-            // </h1>
-            <h1 style={{ color: 'black', fontSize: "40px", textAlign: 'right', display:'flex', justifyContent:'center'}}>
-            <ReactTypingEffect
-                text={[hebrewText, englishText]} // Array containing both Hebrew and English text
-                speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
-                cursorRenderer={cursor => <span>{cursor}</span>}
-                displayTextRenderer={(text, i) => (
-                    <span key={i} style={{ color: 'black', fontFamily: i === 0 ? hebrewFont : englishFont }}>
-                        {text.split('').map((char, index) => (
-                            <span key={index}>{char}</span>
-                        ))}
-                    </span>
-                )}
-            />
+            <h1 style={{ color: 'black', fontSize: "40px", textAlign: 'right', display: 'flex', justifyContent: 'center' }}>
+                <ReactTypingEffect
+                    text={texts.map(({ text }) => text)} // Array containing all text
+                    speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
+                    cursorRenderer={cursor => <span>{cursor}</span>}
+                    displayTextRenderer={(text, i) => (
+                        <span key={i} style={{ color: texts[i].color, fontFamily: texts[i].font, fontWeight: texts[i].fontWeight }}>
+                            {text.split('').map((char, index) => (
+                                <span key={index}>{char}</span>
+                            ))}
+                        </span>
+                    )}
+                />
             </h1>
         );
     };
@@ -105,7 +132,7 @@ function UnderConstructionPage() {
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 textAlign: 'center',
-                minHeight: '100vh', // Ensure the div covers the entire viewport
+                minHeight: '100vh', // Ensure the div covers athe entire viewport
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
