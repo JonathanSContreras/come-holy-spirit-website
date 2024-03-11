@@ -14,17 +14,17 @@ function UnderConstructionPage() {
 
     const ReactTypingEffectDemo = () => {
         const staticText = "Come ";
-        const dynamicText = "Holy Spirit!!!";
+        const dynamicText = "Holy Spirit";
 
         return (
-            <h1 style={{ color: 'white', fontSize: "24px", textShadow: '1px 1px 0px rgba(0, 0, 0, 0.5)' }}>
+            <h1 style={{ color: 'black', fontSize: "50px",fontWeight: 'bold'}}>
                 {staticText}
                 <ReactTypingEffect
                     text={[dynamicText]}
                     speed={50} // Adjust speed here (e.g., 50 milliseconds per character)
                     cursorRenderer={cursor => <span>{cursor}</span>}
                     displayTextRenderer={(text, i) => (
-                        <span key={i} style={{ color: 'white', textShadow: '1px 1px 0px rgba(0, 0, 0, 0.5)' }}>
+                        <span key={i} style={{ color: 'black', fontWeight: 'bold'}}>
                             {text.split('').map((char, i) => (
                                 <span key={i}>{char}</span>
                             ))}
