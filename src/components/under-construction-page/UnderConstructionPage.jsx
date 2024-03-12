@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ReactTypingEffect from 'react-typing-effect';
-import BackgroundImage from '../../assets/background-imgs/church-bg.png';
-import Logo from '../../assets/come-holy-spirit-logo.png';
+import BackgroundImage from '../../assets/background-imgs/church-bg-2.png';
+import Logo from '../../assets/come-holy-spirit-logo-black.png';
+import { FaInstagram } from "react-icons/fa";
+
 
 function UnderConstructionPage() {
     const [showContactForm, setShowContactForm] = useState(false);
@@ -51,24 +53,63 @@ function UnderConstructionPage() {
     //     </h1>
     //     );
     // };
-    const ReactTypingEffectDemo = () => {
-        const texts = [
-            // { text: "Holy Spirit", font: "Cinzel", fontWeight: "normal", color: "black" }, // English
-            // { text: "Espíritu Santo", font: "Bebas Neue", fontWeight: "normal", color: "black" }, // Spanish
-            // { text: "רוח הקודש", font: "Heebo", fontWeight: "bold", color: "black" } // Hebrew
-            { text: "Holy Spirit", font: "Cinzel", fontWeight: "normal", color: "black" }, // English
-            { text: "Espíritu Santo", font: "Cinzel", fontWeight: "normal", color: "black" }, // Spanish
-            { text: "רוח הקודש", font: "Cinzel", fontWeight: "normal", color: "black" } // Hebrew
-        ];
+    // for multiple words with different font styles
+    // const ReactTypingEffectDemo = () => {
+    //     const staticText = "TILL ALL HAVE";
+    //     const texts = [
+    //         // { text: "Holy Spirit", font: "Cinzel", fontWeight: "normal", color: "black" }, // English
+    //         // { text: "Espíritu Santo", font: "Bebas Neue", fontWeight: "normal", color: "black" }, // Spanish
+    //         // { text: "רוח הקודש", font: "Heebo", fontWeight: "bold", color: "black" } // Hebrew
+    //         // { text: "Holy Spirit", font: "Cinzel", fontWeight: "normal", color: "black" }, // English
+    //         // { text: "Espíritu Santo", font: "Cinzel", fontWeight: "normal", color: "black" }, // Spanish
+    //         // { text: "רוח הקודש", font: "Cinzel", fontWeight: "normal", color: "black" } // Hebrew
+    //         // { text: "TILL", font: "Cinzel", fontWeight: "normal", color: "black" },
+    //         // { text: "ALL", font: "Cinzel", fontWeight: "normal", color: "black" }, 
+    //         // { text: "HAVE", font: "Cinzel", fontWeight: "normal", color: "black" },
+    //         { text: "SEEN", font: "Cinzel", fontWeight: "normal", color: "black" },
+    //         { text: "HEARD", font: "Cinzel", fontWeight: "normal", color: "black" }
+    //     ];
 
+    //     return (
+    //         <h1 style={{fontFamily:"Cinzel", color: 'black', fontSize: "40px", textAlign: 'right', display: 'flex', justifyContent: 'center' }}>
+    //             {staticText}
+    //             <ReactTypingEffect
+    //                 text={texts.map(({ text }) =>text)} // Array containing all text
+    //                 speed={400}
+    //                 eraseDelay={700} 
+    //                 typingDelay={700}
+
+    //                 cursorRenderer={cursor => <span>{cursor}</span>}
+    //                 displayTextRenderer={(text, i) => (
+    //                     <span key={i} style={{ color: texts[i].color, fontFamily: texts[i].font, fontWeight: texts[i].fontWeight }}>
+    //                         {text.split('').map((char, index) => (
+    //                             <span key={index}>{char}</span>
+    //                         ))}
+    //                     </span>
+    //                 )}
+    //             />
+    //         </h1>
+    //     );
+    // };
+    const ReactTypingEffectDemo = () => {
+        const staticText = "TILL ALL HAVE ";
+        const texts = ["SEEN", "HEARD"];
+        
+        const totalTextLength = staticText.length + texts.join("").length;
+        const threshold = 20; // Adjust threshold value as needed
+        
         return (
-            <h1 style={{ color: 'black', fontSize: "40px", textAlign: 'right', display: 'flex', justifyContent: 'center' }}>
+            <h1 style={{ fontFamily: "Cinzel", color: 'black', fontSize: "40px", textAlign: 'center' }}>
+                {totalTextLength > threshold ? <br /> : null}
+                {staticText}
                 <ReactTypingEffect
-                    text={texts.map(({ text }) => text)} // Array containing all text
-                    speed={75} // Adjust speed here (e.g., 50 milliseconds per character)
+                    text={texts}
+                    speed={400}
+                    eraseDelay={700}
+                    typingDelay={700}
                     cursorRenderer={cursor => <span>{cursor}</span>}
                     displayTextRenderer={(text, i) => (
-                        <span key={i} style={{ color: texts[i].color, fontFamily: texts[i].font, fontWeight: texts[i].fontWeight }}>
+                        <span key={i} style={{ color: 'black', fontFamily: 'Cinzel', fontWeight: 'normal' }}>
                             {text.split('').map((char, index) => (
                                 <span key={index}>{char}</span>
                             ))}
@@ -146,11 +187,15 @@ function UnderConstructionPage() {
                 <img src={Logo} alt="Logo" style={{ width: '150px', height: 'auto' }} />
             </div>
 
+            {/* <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram size={30} style={{ marginTop: '20px', color: 'white' }} />
+            </a> */}
+
             <div style={{ fontSize: "18px", marginBottom: '20px', textAlign: 'center' }}>
                 <ReactTypingEffectDemo /> {/* Render the ReactTypingEffectDemo component */}
                 <p>This page is under construction.</p>
                 <p>We appreciate your patience while we work on improving this page.</p>
-                <button style={{ border: '1px solid black', padding: '10px 20px', backgroundColor: 'transparent', color: 'black', borderRadius: '10px' }} onClick={handleContactButtonClick}>Contact Us</button> {/* Contact button */}
+                <button style={{ border: '1px solid black', padding: '5px 20px', backgroundColor: 'transparent', color: 'black', borderRadius: '10px' }} onClick={handleContactButtonClick}>Contact Us</button> {/* Contact button */}
             </div>
 
             {/* Contact form modal */}
