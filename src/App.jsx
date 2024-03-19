@@ -20,12 +20,13 @@ const App = () => {
   }, []);
   return (
     <div>
-      {/* <Navbar />
-      <Hero />
-      <Products />
-      <MostRecentDrops /> */}
-      <Homepage />
-      {/* <UnderConstructionPage /> */}
+      {/* <Navbar /> */}
+      {/* <Hero /> */}
+      {/* <Products /> */}
+      {/* <MostRecentDrops /> */}
+      {/* <Homepage /> */}
+      {/* <Hero /> */}
+      <UnderConstructionPage />
     </div>
   )
 }
