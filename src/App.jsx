@@ -4,6 +4,7 @@ import Hero from './components/hero/hero'
 import Products from "./components/products/Products"
 import MostRecentDrops from './components/mostRecentDrops/MostRecentDrops'
 import UnderConstructionPage from './components/under-construction-page/UnderConstructionPage'
+import Homepage from './components/homepage/Homepage'
 import AOS from "aos"
 import "aos/dist/aos.css"
 
@@ -23,7 +24,8 @@ const App = () => {
       <Hero />
       <Products />
       <MostRecentDrops /> */}
-      <UnderConstructionPage />
+      <Homepage />
+      {/* <UnderConstructionPage /> */}
     </div>
   )
 }

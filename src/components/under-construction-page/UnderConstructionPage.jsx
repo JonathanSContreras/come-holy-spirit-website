@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactCurvedText from "react-curved-text";
 import ReactTypingEffect from 'react-typing-effect';
 import BackgroundImage from '../../assets/background-imgs/church-bg-2.png';
 import Logo from '../../assets/come-holy-spirit-logo-black.png';
 import { FaInstagram } from "react-icons/fa";
 
+const url = `https://beta.ourmanna.com/api/v1/get?format=json&order=daily`
 
 function UnderConstructionPage() {
     const [showContactForm, setShowContactForm] = useState(false);
@@ -12,6 +14,36 @@ function UnderConstructionPage() {
         email: '',
         message: ''
     });
+    
+    // daily verse stuff
+    const [verse, setVerse] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await fetch(url, {
+                    headers: {
+                        'accept': 'application/json'
+                    },
+                });
+
+                if (!result.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+
+                const json = await result.json();
+                console.log(json);
+                setVerse({
+                    text: json.verse.details.text,
+                    reference: json.verse.details.reference
+                })
+            } catch (error) {
+                console.error('Error fetching data:', error.message);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     // const ReactTypingEffectDemo = () => {
     //     // const dynamicText = ["בואי רוח הקודש", " Come Holy Spirit"]; // Array containing both Hebrew and English text
@@ -168,7 +200,7 @@ function UnderConstructionPage() {
     return (
         <div
             style={{
-                backgroundImage: `url(${BackgroundImage})`, // Replace with your image path
+                backgroundImage: `url(${BackgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
@@ -184,18 +216,19 @@ function UnderConstructionPage() {
         >
             {/* Logo in the corner */}
             <div style={{ position: 'absolute', top: '50px', left: '50%', transform: 'translateX(-50%)' }}>
-                <img src={Logo} alt="Logo" style={{ width: '150px', height: 'auto' }} />
+                <img src={Logo} alt="Logo" style={{ width: '250px', height: 'auto' }} />
             </div>
 
-            {/* <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                    <FaInstagram size={30} style={{ marginTop: '20px', color: 'white' }} />
-            </a> */}
-
             <div style={{ fontSize: "18px", marginBottom: '20px', textAlign: 'center' }}>
-                <ReactTypingEffectDemo /> {/* Render the ReactTypingEffectDemo component */}
+                <div style ={{fontSize: '10px', width: '50%', margin: '0 auto'}}>
+                    <p style={{fontWeight:'bold'}}>Daily Verse:</p>
+                    <p>{'"'+verse.text+'"'}</p>
+                    <p>{verse.reference}</p>    
+                </div>
+                <ReactTypingEffectDemo /> 
                 <p>This page is under construction.</p>
                 <p>We appreciate your patience while we work on improving this page.</p>
-                <button style={{ border: '1px solid black', padding: '5px 20px', backgroundColor: 'transparent', color: 'black', borderRadius: '10px' }} onClick={handleContactButtonClick}>Contact Us</button> {/* Contact button */}
+                <button style={{ border: '1px solid black', padding: '5px 20px', backgroundColor: 'transparent', color: 'black', borderRadius: '10px' }} onClick={handleContactButtonClick}>Contact Us</button> 
             </div>
 
             {/* Contact form modal */}
